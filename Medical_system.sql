@@ -1,4 +1,4 @@
--- Table: doctors
+-- Tabela: doctors
 CREATE TABLE doctors (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -15,7 +15,7 @@ VALUES
 ('Elira Kola', 'Neurologji', 'elira.kola@hospitalname.com', '+355 68 000 0000', TRUE, NULL),
 ('Gentian Berisha', 'Pediatri', 'gentian.berisha@hospitalname.com', '+355 69 000 0000', TRUE, NULL);
 
--- Table: patients
+-- Tabela: patients
 CREATE TABLE patients (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE patients (
     phone VARCHAR(50)
 );
 
--- Join table for Doctor-Patient ManyToMany
+-- Tabele e bashkuar patients-doctors per lidhje shume me shume
 CREATE TABLE doctor_patients (
     doctor_id INT NOT NULL,
     patient_id INT NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE doctor_patients (
     FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE
 );
 
--- Table: appointments
+-- Tabela: appointments
 CREATE TABLE appointments (
     id SERIAL PRIMARY KEY,
     appointment_date TIMESTAMP NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE appointments (
     FOREIGN KEY (doctor_id) REFERENCES doctors(id) ON DELETE SET NULL
 );
 
--- Table: prescriptions
+-- Tabela: prescriptions
 CREATE TABLE prescriptions (
     id SERIAL PRIMARY KEY,
     appointment_id INT NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE prescriptions (
     FOREIGN KEY (appointment_id) REFERENCES appointments(id) ON DELETE CASCADE
 );
 
--- Table: users
+-- Tabela: users
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255) UNIQUE NOT NULL,
