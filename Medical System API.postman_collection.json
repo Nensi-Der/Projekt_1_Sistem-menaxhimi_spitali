@@ -12,7 +12,7 @@
 			"name": "User Controller",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Login",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -44,7 +44,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "signup",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -79,7 +79,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "doctor signup",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -115,7 +115,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "admin signup",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -151,7 +151,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "user list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -170,7 +170,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "find user",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -190,7 +190,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update user",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -225,7 +225,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "deleteuser",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -251,7 +251,7 @@
 			"name": "Admin controller",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "user list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -272,7 +272,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "get user",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -294,7 +294,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "create user",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -330,7 +330,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete user",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -352,7 +352,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update role",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -393,7 +393,7 @@
 			"name": "Appointment controller",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "appointments list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -412,7 +412,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "get appointment",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -432,7 +432,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "create appointment",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -466,7 +466,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update appointment",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -501,7 +501,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete appointment",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -527,7 +527,7 @@
 			"name": "Doctor controller",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "alldoctors",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -546,7 +546,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "get doctor",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -566,7 +566,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "create doctor",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -600,7 +600,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update doctor",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -635,7 +635,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete doctor",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -655,7 +655,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "available doctors",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -675,7 +675,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update availability",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -706,7 +706,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "assign doctor",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -728,7 +728,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "addign patient",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -750,7 +750,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "get patient",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -777,7 +777,7 @@
 			"name": "Patient controller",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "patient list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -796,7 +796,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "get patient",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -816,7 +816,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "create patient",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -850,7 +850,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update patient",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -885,7 +885,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete patient",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -911,7 +911,7 @@
 			"name": "Prescription controller",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "prescription list",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -930,7 +930,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "get prescription",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -950,7 +950,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "create prescription",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -984,7 +984,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "update prescription",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -1013,7 +1013,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "delete prescription",
 					"request": {
 						"method": "DELETE",
 						"header": [],
