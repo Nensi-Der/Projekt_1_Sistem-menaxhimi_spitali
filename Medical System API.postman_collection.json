@@ -1,0 +1,1039 @@
+{
+	"info": {
+		"_postman_id": "c4e7ccd4-5f0b-4ca4-a69b-93282a0e8163",
+		"name": "Medical System API",
+		"description": "**Pershkrim i Pergjithshem — Medical System API**\n\n**Medical System API** eshte nje sherbim RESTful i ndertuar per te menaxhuar funksione kryesore te nje sistemi mjekesor. Ky API ofron funksionalitete për regjistrimin, menaxhimin dhe ndërveprimin e përdoruesve (pacientë, mjekë dhe administratorë) me sistemin, duke mundësuar:\n\n- **Menaxhimin e përdoruesve** me role të ndryshme (PACIENT, DOKTOR, ADMIN)\n    \n- **Planifikimin dhe menaxhimin e takimeve** mes pacientëve dhe doktorëve\n    \n- **Krijimin dhe përditësimin e recetave mjekësore**\n    \n- **Menaxhimin e doktorëve** dhe disponueshmërisë së tyre\n    \n- **Ruajtjen e të dhënave të pacientëve** dhe lidhjet me doktorët\n    \n\n### Ndryshimet sipas rolit:\n\n- **Pacientët** mund të regjistrohen, të caktohen te një doktor dhe të marrin receta\n    \n- **Doktorët** mund të shohin dhe menaxhojnë pacientët e tyre, të japin receta dhe të përditësojnë oraret e tyre\n    \n- **Administratorët** kanë akses të plotë për të krijuar përdorues, fshirë llogari dhe caktuar role\n    \n\n### Struktura kryesore e kontrolluesve:\n\n- User controller – Menaxhon login, signup dhe informacionin e përdoruesve\n    \n- Admin controller – Veprime administrative si krijimi i përdoruesve dhe caktimi i roleve\n    \n- Doctor controller – Menaxhimi i doktorëve, disponueshmërisë dhe pacientëve të tyre\n    \n- Patient controller – Menaxhimi i të dhënave të pacientëve\n    \n- Appointment controller – Planifikimi dhe përditësimi i takimeve mjekësore\n    \n- Prescription controller – Krijimi, leximi dhe fshirja e recetave",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47304880",
+		"_collection_link": "https://ndervishhasani24-3024848.postman.co/workspace/Nensi's-Workspace~77765759-5dc3-4d7c-8727-ac79eef7eef5/collection/47304880-c4e7ccd4-5f0b-4ca4-a69b-93282a0e8163?action=share&source=collection_link&creator=47304880"
+	},
+	"item": [
+		{
+			"name": "User Controller",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/login?username=nensi&password=12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "nensi",
+									"description": "user's username"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"description": "user's password"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"nensi\",\r\n  \"password\": \"12345\",\r\n  \"email\": \"nensi@gmail.com\",\r\n  \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"doctor\",\r\n  \"password\": \"doctor123\",\r\n  \"email\": \"doctor@hospitalname.com\",\r\n  \"role\": \"DOCTOR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/signup/doctor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"signup",
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"admin1\",\r\n  \"password\": \"AdminPass\",\r\n  \"email\": \"admin@hospitalname.com\",\r\n  \"role\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/signup/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"signup",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"john_updated\",\r\n  \"password\": \"newPassword123\",\r\n  \"email\": \"john_updated@example.com\",\r\n  \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "User controller menaxhon operacionet që lidhen me përdoruesit në sistemin e menaxhimit mjekësor. Ky kontrollues ofron endpoint-e për:\n\n- **Hyrje (login)** me emër përdoruesi dhe fjalëkalim\n    \n- **Regjistrim (signup)** për përdorues të zakonshëm, doktorë dhe administratorë\n    \n- **Shfaqjen** e të gjithë përdoruesve ose një përdoruesi të vetëm sipas ID-së\n    \n- **Përditësimin** e të dhënave të përdoruesit\n    \n- **Fshirjen** e një llogarie përdoruesi\n    \n\nKy kontrollues mbeshtet role te ndryshme perdoruesish (PATIENT, DOCTOR, ADMIN) dhe kryen kontrolle sipas rolit gjate regjistrimit te stafit apo administratoreve."
+		},
+		{
+			"name": "Admin controller",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"newuser\",\r\n  \"password\": \"newpassword123\",\r\n  \"email\": \"newuser@gmail.com\",\r\n  \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/admin/users/1/role?role=DOCTOR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"users",
+								"1",
+								"role"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "DOCTOR"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Admin controller eshte pergjegjes per funksionalitetet administrative në sistemin mjekesor. Ky kontrollues i lejon administratoreve te:\n\n- **Shfaqin të gjithë përdoruesit** në sistem\n    \n- **Shfaqin një përdorues të vetëm** duke përdorur ID-në\n    \n- **Krijojnë përdorues të rinj** (si pacientë apo staf mjekësor)\n    \n- **Fshijnë përdorues** nga sistemi\n    \n- **Ndajnë role** për përdoruesit (p.sh., ta bëjnë dikë ADMIN, DOCTOR, etj.)\n    \n\nKy kontrollues perdoret per menaxhimin e plote te aksesit dhe roleve ne sistem nga ana e një administratori."
+		},
+		{
+			"name": "Appointment controller",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appointments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"patientId\": 1,\r\n  \"doctorId\": 2,\r\n  \"dateTime\": \"2025-08-10T14:30:00\",\r\n  \"reason\": \"routine check-up\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"patientId\": 1,\r\n  \"doctorId\": 3,\r\n  \"dateTime\": \"2025-08-15T09:00:00\",\r\n  \"reason\": \"Follow-up consultation\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/appointments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/appointments/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Appointment controller menaxhon takimet/vizitat mjekësore midis pacientëve dhe mjekëve në sistemin mjekësor. Ky kontrollues ofron endpoint-e për:\n\n- **Shfaqjen e të gjitha takimeve** ekzistuese në sistem\n    \n- **Gjetjen e një takimi specifik** përmes ID-se\n    \n- **Krijimin e një takimi të ri** me informacion të vlefshëm (date, ore, mjek, pacient, etj.)\n    \n- **Përditësimin** e të dhënave të një takimi ekzistues\n    \n- **Fshirjen** e një takimi nga sistemi\n    \n\nKy kontrollues siguron që të gjitha terminet të regjistrohen dhe menaxhohen në mënyrë të saktë dhe efikase brenda sistemit."
+		},
+		{
+			"name": "Doctor controller",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"dr\",\r\n  \"email\": \"dr@hospitalname.com\",\r\n  \"password\": \"Pass123\",\r\n  \"role\": \"DOCTOR\",\r\n  \"available\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/doctors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"dr\",\r\n  \"email\": \"dr@hospitalname.com\",\r\n  \"password\": \"Pass123\",\r\n  \"role\": \"DOCTOR\",\r\n  \"available\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/doctors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/available",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"available"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/1/availability?available=true&busyUntil=2025-08-10T14:30:00",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1",
+								"availability"
+							],
+							"query": [
+								{
+									"key": "available",
+									"value": "true"
+								},
+								{
+									"key": "busyUntil",
+									"value": "2025-08-10T14:30:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/1/patients/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1",
+								"patients",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/1/patients/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1",
+								"patients",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/doctors/1/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"doctors",
+								"1",
+								"patients"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Doctor controller menaxhon informacionin dhe funksionet që lidhen me doktorët në sistemin mjekesor. Ky kontrollues ofron endpoint-e per:\n\n- **Shfaqjen e te gjithe doktoreve** ne sistem\n    \n- **Gjetjen e nje doktori specifik** permes ID-se\n    \n- **Krijimin e nje doktori te ri**, duke verifikuar rolin e tij\n    \n- **Perditesimin** e te dhenave të nje doktori ekzistues\n    \n- **Fshirjen** e një doktori nga sistemi\n    \n- **Menaxhimin e disponueshmërisë** së doktorëve\n    \n- **Shtimin ose heqjen e pacientëve** që janë nën kujdesin e një doktori\n    \n- **Shfaqjen e pacientëve** që i përkasin një doktori të caktuar\n    \n\nKy kontrollues ndihmon në organizimin dhe koordinimin e burimeve mjekësore brenda sistemit."
+		},
+		{
+			"name": "Patient controller",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/patients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"patient123\",\r\n  \"email\": \"patient@gmail.com\",\r\n  \"password\": \"password123\",\r\n  \"role\": \"PATIENT\",\r\n  \"medicalHistory\": \"arthritis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/patients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"patientUpdated\",\r\n  \"email\": \"updated@gmail.com\",\r\n  \"password\": \"newPassword456\",\r\n  \"role\": \"PATIENT\",\r\n  \"medicalHistory\": \"Updated medical info\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/patients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/patients/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Patient controller menaxhon informacionin dhe operacionet që lidhen me pacientët në sistemin mjekesor. Permes ketij kontrolluesi mund të:\n\n- **Shfaqen të gjithë pacientët** në sistem\n    \n- **Kërkohet një pacient specifik** përmes ID-së\n    \n- **Regjistrohet një pacient i ri**, duke validuar të dhënat\n    \n- **Përditësohen të dhënat** e një pacienti ekzistues\n    \n- **Fshihet një pacient** nga sistemi\n    \n\nKy kontrollues eshte thelbesor per ruajtjen dhe perditesimin e te dhenave te pacientve."
+		},
+		{
+			"name": "Prescription controller",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prescriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prescriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prescriptions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prescriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"patientId\": 1,\r\n  \"doctorId\": 2,\r\n  \"medication\": \"Ibuprofen\",\r\n  \"dosage\": \"200mg\",\r\n  \"instructions\": \"Take one tablet every 8 hours\",\r\n  \"dateIssued\": \"2025-08-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/prescriptions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prescriptions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"patientId\": 2,\r\n  \"doctorId\": 3,\r\n  \"medication\": \"Paracetamol\",\r\n  \"dosage\": \"500mg\",\r\n  \"instructions\": \"Take one tablet every 6 hours\",\r\n  \"dateIssued\": \"2025-08-04\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/prescriptions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prescriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prescriptions/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prescriptions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Prescription controller menaxhon recetat mjekesore qe leshohen nga mjeket per pacientet. Ky kontrollues ofron endpoint-e për:\n\n- **Shfaqjen e te gjitha recetave** të regjistruara në sistem\n    \n- **Gjetjen e nje recete specifike** përmes ID-së\n    \n- **Krijimin e nje recete te re** duke validuar të dhënat e nevojshme (pacienti, mjeku, medikamenti, dozimi, udhëzimet)\n    \n- **Perditesimin** e një recete ekzistuese\n    \n- **Fshirjen** e një recete nga sistemi\n    \n\nKy kontrollues siguron ruajtjen dhe menaxhimin korrekt të recetave për trajtimet mjekësore të pacientëve."
+		}
+	]
+}
